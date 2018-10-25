@@ -9,7 +9,7 @@ class App extends React.Component {
         return(
             <Switch>
                 <Route exact path='/' component={UserList}/>
-                <Route path='/user-tasks' component={UserTasks}/>
+                <Route path='/user-tasks/:userId' component={UserTasks}/>
             </Switch>
         )
     }
