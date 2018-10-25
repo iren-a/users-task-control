@@ -1,0 +1,38 @@
+{
+  "name": "users-task-control",
+  "version": "1.0.0",
+  "description": "Приложение для управления задачами пользователей",
+  "main": "App.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iren-a/users-task-control.git"
+  },
+  "author": "iren-a",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iren-a/users-task-control/issues"
+  },
+  "homepage": "https://github.com/iren-a/users-task-control#readme",
+  "dependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "path": "^0.12.7",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
