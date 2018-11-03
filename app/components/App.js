@@ -1,26 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {HashRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import UserList from './UserList';
-import UserTasks from './UserTasks';
+import UserTodos from './UserTodos';
 
-class App extends React.Component {
+
+
+export default class App extends React.Component {
     render() {
         return(
-            <Switch>
-                <Route exact path='/' component={UserList}/>
-                <Route path='/user-tasks/:userId' component={UserTasks}/>
-            </Switch>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path='/' component={UserList}/>
+                    <Route path='/user/:userId/todos' component={UserTodos}/>
+                </Switch>
+            </BrowserRouter>
         )
     }
 }
-
-
-ReactDOM.render(
-    (
-        <HashRouter>
-            <App />
-        </HashRouter>
-    ),
-    document.getElementById('app')
-);

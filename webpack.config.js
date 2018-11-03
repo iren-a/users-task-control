@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: './app/components/App.js'
+        app: './app/index.js'
     },
     devServer: {
         contentBase: './public'
@@ -20,7 +20,8 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options:{
-                            presets:["@babel/preset-env", "@babel/preset-react"]
+                            presets:["@babel/preset-env", "@babel/preset-react"],
+                            plugins: ["@babel/plugin-proposal-class-properties"]
                         }
                     }
                 ]

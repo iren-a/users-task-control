@@ -1,22 +1,16 @@
 import React from 'react';
 import User from './User';
+import {connect} from 'react-redux';
+import {getUsersLoading, getUsers, getUsersError} from './../selectors/getUsersSelectors';
+import {getUsersRequest} from './../actions/processUsers';
 
-export default class UserList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            users: []
-        }
-    }
-
+class UserList extends React.Component {
     render() {
-        if (this.state.error) {
+        if (this.props.error) {
             return (
-                <div>Error: {this.state.error.message}</div>
+                <div>Error: {this.props.error.message}</div>
             );
-        } else if (!this.state.isLoaded) {
+        } else if (!this.props.isLoaded) {
             return (
                 <div>Loading...</div>
             );
@@ -25,7 +19,7 @@ export default class UserList extends React.Component {
                 <div className='user-list'>
                     <h1 className='user-list__header'>User list</h1>
                     <ul>
-                        {this.state.users.map(user => (
+                        {this.props.users.map(user => (
                             <User user={user} key={user.id}/>
                         ))}
                     </ul>
@@ -35,21 +29,18 @@ export default class UserList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        users: result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+        this.props.getUsersRequest('users');
     }
 }
+
+const mapStateToProps = (state) => ({
+    isLoaded: getUsersLoading(state),
+    users: getUsers(state),
+    error: getUsersError(state),
+});
+
+const mapDispatchToProps = {
+    getUsersRequest
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);
