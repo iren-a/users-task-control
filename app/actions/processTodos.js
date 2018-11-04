@@ -1,12 +1,21 @@
 import {createActions} from 'redux-actions';
 
-const {getTodosRequest, getTodosSuccess, getTodosFailure, addTodo, editTodo, removeTodo} = createActions(
+const {getTodosRequest, getTodosSuccess, getTodosFailure} = createActions(
     'GET_TODOS_REQUEST',
     'GET_TODOS_SUCCESS',
-    'GET_TODOS_FAILURE',
-    'ADD_TODO',
-    'EDIT_TODO',
-    'REMOVE_TODO'
+    'GET_TODOS_FAILURE'
 );
 
-export {getTodosRequest, getTodosSuccess, getTodosFailure, addTodo, editTodo, removeTodo};
+const {removeTodo, removeTodoSuccess, removeTodoFailure} = createActions(
+    'REMOVE_TODO',
+    'REMOVE_TODO_SUCCESS',
+    'REMOVE_TODO_FAILURE'
+);
+
+export {
+    getTodosRequest,
+    getTodosSuccess,
+    getTodosFailure,
+    removeTodo,
+    removeTodoSuccess,
+    removeTodoFailure};

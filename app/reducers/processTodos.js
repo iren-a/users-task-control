@@ -1,5 +1,6 @@
 import {handleActions} from 'redux-actions';
-import {getTodosRequest, getTodosSuccess, getTodosFailure, addTodo, editTodo, removeTodo} from '../actions/processTodos';
+import {getTodosRequest, getTodosSuccess, getTodosFailure} from './../actions/processTodos';
+import {removeTodo, removeTodoSuccess, removeTodoFailure} from './../actions/processTodos';
 import {combineReducers} from 'redux';
 
 const isLoaded = handleActions(
@@ -14,7 +15,7 @@ const isLoaded = handleActions(
 const todos = handleActions(
     {
         [getTodosSuccess.toString()]: (state, action) => action.payload,
-        [removeTodo.toString()]: (state, action) => {
+        [removeTodoSuccess.toString()]: (state, action) => {
             const todoId = action.payload;
             return state.filter((todo) => todo.id !== todoId);
         }
@@ -26,6 +27,7 @@ const todos = handleActions(
 const error = handleActions(
     {
         [getTodosFailure.toString()]: (state, action) => action.payload,
+        [removeTodoFailure.toString()]: (state, action) => action.payload,
     },
     null
 );

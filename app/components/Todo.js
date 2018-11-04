@@ -2,7 +2,9 @@ import React from 'react';
 
 export default class Todo extends React.Component {
     _remove = () => {
-      this.props.remove(this.props.todo.id);
+        if (confirm('Do you want to delete the todo?')) {
+            this.props.remove(this.props.todo.id);
+        }
     };
 
     render() {

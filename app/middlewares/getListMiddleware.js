@@ -1,7 +1,8 @@
 import {getUsersRequest, getUsersSuccess, getUsersFailure} from './../actions/processUsers';
-import {getTodosRequest, getTodosSuccess, getTodosFailure, addTodo, editTodo, removeTodo} from './../actions/processTodos';
+import {getTodosRequest, getTodosSuccess, getTodosFailure} from './../actions/processTodos';
+import {removeTodo, removeTodoSuccess, removeTodoFailure} from './../actions/processTodos';
 
-import {getList} from './../api';
+import {getList, remove} from './../api';
 
 export default (store) => (next) => (action) => {
     if (action.type === getUsersRequest.toString()) {
@@ -20,6 +21,15 @@ export default (store) => (next) => (action) => {
             })
             .catch((error) => {
                 store.dispatch(getTodosFailure(error));
+            });
+    }
+    if (action.type === removeTodo.toString()) {
+        remove('todos', action.payload)
+            .then((entities) => {
+                store.dispatch(removeTodoSuccess(action.payload));
+            })
+            .catch((error) => {
+                store.dispatch(removeTodoFailure(error));
             });
     }
     return next(action);

@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {getUsersRequest, getUsersSuccess, getUsersFailure} from '../actions/processUsers';
+import {getUsersRequest, getUsersSuccess, getUsersFailure} from './../actions/processUsers';
 import {combineReducers} from 'redux';
 
 const isLoaded = handleActions(
