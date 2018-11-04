@@ -12,10 +12,29 @@ const {removeTodo, removeTodoSuccess, removeTodoFailure} = createActions(
     'REMOVE_TODO_FAILURE'
 );
 
+const {addTodo, addTodoSuccess, addTodoFailure} = createActions(
+    'ADD_TODO',
+    'ADD_TODO_SUCCESS',
+    'ADD_TODO_FAILURE'
+);
+
+const {editTodo, editTodoSuccess, editTodoFailure} = createActions(
+    'EDIT_TODO',
+    'EDIT_TODO_SUCCESS',
+    'EDIT_TODO_FAILURE'
+);
+
 export {
     getTodosRequest,
     getTodosSuccess,
     getTodosFailure,
     removeTodo,
     removeTodoSuccess,
-    removeTodoFailure};
+    removeTodoFailure,
+    addTodo,
+    addTodoSuccess,
+    addTodoFailure,
+    editTodo,
+    editTodoSuccess,
+    editTodoFailure
+};
