@@ -1,7 +1,7 @@
 import React from 'react';
-import {addTodo, editTodo} from '../actions/processTodos';
+import {addTodo, editTodo} from './../actions/processTodos';
 import {connect} from 'react-redux';
-import {getTodos, getTodosProcessed} from '../selectors/getTodosSelectors';
+import {getTodos, getTodosProcessed} from './../selectors/getTodosSelectors';
 
 class TodoForm extends React.Component {
     _addTodo = (evt) => {
@@ -42,7 +42,7 @@ class TodoForm extends React.Component {
             <form className='todo-form' onSubmit={this.props.match.params.todoId ? this._editTodo : this._addTodo}>
                 <div className='todo-form__fieldset'>
                     <label className='todo-form__label' htmlFor="id">Title</label>
-                    <input type="text" id="title" defaultValue={todo.title} required ref={(input) => this._title = input}/>
+                    <input type="text" size="50" id="title" defaultValue={todo.title} required ref={(input) => this._title = input}/>
                 </div>
                 <div className='todo-form__fieldset'>
                     <label className='todo-form__label' htmlFor="completed">Completed</label>

@@ -2,7 +2,7 @@ import React from 'react';
 import Todo from './Todo';
 import {connect} from 'react-redux';
 import {getTodosLoading, getTodos, getTodosError} from './../selectors/getTodosSelectors';
-import {getUsers} from '../selectors/getUsersSelectors';
+import {getUsers} from './../selectors/getUsersSelectors';
 import {getTodosRequest} from './../actions/processTodos';
 import {Link} from 'react-router-dom';
 
@@ -22,28 +22,18 @@ class UserTodos extends React.Component {
 
             return(
                 <div className='user-todos'>
-                    <Link to='/'>
+                    <Link className='btn' to='/'>
                         <div>Back to all users</div>
                     </Link>
-                    <h1 className='user-todo__header'>User todos</h1>
-                    <Link to={`/user/${this.props.match.params.userId}/todo-form`}>
+                    <h1 className='user-todos__header'>{`${user.name}' todos`}</h1>
+                    <Link className='btn' to={`/user/${this.props.match.params.userId}/todo-form`}>
                         <div className='user-todo__add'>Add todo</div>
                     </Link>
-                    <div className='user-todos__user-info'>
-                        <div>{user.name}</div>
-                        <div>{user.username}</div>
-                        <div>{user.email}</div>
-                        <div>{user.phone}</div>
-                        <div>{user.website}</div>
-                    </div>
-                    <div className='user-todos__list'>
-                        <ul>
-                            {this.props.todos.map(todo => (
-                                <Todo todo={todo} key={todo.id}/>
-                            ))}
-                        </ul>
-                    </div>
-
+                    <ul className='user-todos__list'>
+                        {this.props.todos.map(todo => (
+                            <Todo todo={todo} key={todo.id}/>
+                        ))}
+                    </ul>
                 </div>
             );
         }

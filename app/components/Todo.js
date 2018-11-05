@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {removeTodo} from '../actions/processTodos';
+import {removeTodo} from './../actions/processTodos';
 
 class Todo extends React.Component {
     _remove = (evt) => {
@@ -14,14 +14,13 @@ class Todo extends React.Component {
     render() {
         return(
             <li className='todo'>
-                <div className='todo__id'>{this.props.todo.id}</div>
-                <div className='todo__tilte'>{this.props.todo.title}</div>
-                <div className='todo__completed'>{this.props.todo.completed ? 'compleded' : 'in process'}</div>
-                <button className='todo__delete' onClick={this._remove}>Delete</button>
-                <Link to={`/user/${this.props.todo.userId}/todo/${this.props.todo.id}/todo-form`}>
-                    <div className='todo__edit'>Edit</div>
-                </Link>
-
+                <div className='todo__id'>{`ID: ${this.props.todo.id}`}</div>
+                <div className='todo__tilte'>{`Title: ${this.props.todo.title}`}</div>
+                <div className='todo__completed'>{`State: ${this.props.todo.completed ? 'compleded' : 'in process'}`}</div>
+                <div className='todo__button-block'>
+                    <button className='todo__delete btn' onClick={this._remove}>Delete</button>
+                    <Link className='todo__edit btn' to={`/user/${this.props.todo.userId}/todo/${this.props.todo.id}/todo-form`}>Edit</Link>
+                </div>
             </li>
         )
 

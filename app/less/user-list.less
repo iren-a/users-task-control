@@ -1,0 +1,48 @@
+.user-list {
+  .container();
+}
+
+.user-list__header{
+  .header();
+}
+
+.user-list__users {
+  padding: 0;
+}
+
+.user-list__user {
+  width: 300px;
+  margin-bottom: 30px;
+  padding: 15px 30px;
+  list-style: none;
+  text-decoration: none;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.5);
+  color: @color-base;
+
+  &:hover {
+    background-color: @color-hover;
+    cursor: pointer;
+  }
+}
+
+.user-list__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user-list__name {
+  font-size: 24px;
+  color: @color-mark;
+}
+
+@media @tablet-width {
+  .user-list__user {
+    width: 500px;
+  }
+}
+
+@media @desktop-width {
+  .user-list__user {
+    width: 600px;
+  }
+}

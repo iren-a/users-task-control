@@ -1,9 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: {
-        app: './app/index.js'
-    },
+    entry: './app/components/App.js',
     devServer: {
         contentBase: './public'
     },
@@ -38,4 +36,4 @@ module.exports = {
             }
         ]
     }
-}
+};
